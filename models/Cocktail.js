@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
-const DrinkSchema = new Schema({
+const CocktailSchema = new Schema({
 
     name: {type: String, required: true},
     category: {
@@ -11,22 +11,22 @@ const DrinkSchema = new Schema({
     ingredients: {type: Array},
     pic: {type: String},
     picID: {type: String },
-    // alert: {type: String},
-    // cookTime: {type: Number},
-    // price: {type: String},
-    recipe: [{type: String}],
     ingredientsForRecipe: [
-        {
-            material: {type: String},
-            amount: {type: String}
+        {   
+            material: String,
+            amount: String
         }
     ],
+    recipe: [String],
     videoForRecipe: {type: String},
+    // prepareTime: {type: Number},
+    // price: {type: Number},
+    // alert: {type: String},
     createdAt: {
         type: Date,
         default: Date.now
     }
 })
 
-const Drink = mongoose.model('Drink', DrinkSchema);
-export default Drink;
+const Cocktail = mongoose.model('Cocktail', CocktailSchema);
+export default Cocktail;
